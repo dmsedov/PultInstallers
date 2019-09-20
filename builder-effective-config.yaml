@@ -1,0 +1,38 @@
+directories:
+  output: installers
+  buildResources: resources
+appId: livetex-pult
+asar: true
+compression: maximum
+electronVersion: 2.0.16
+files:
+  - filter:
+      - '**/*'
+      - '!src'
+      - '!typings'
+      - '!global.d.ts'
+      - '!cert.pfx'
+      - '!README.md'
+      - '!sonatype.sbt'
+      - '!tsconfig.json'
+      - '!tslint.json'
+      - '!typings.json'
+      - '!webpack.config.js'
+dmg: {}
+mac:
+  category: public.app-category.business
+  target: zip
+win:
+  target: squirrel
+  certificateFile: cert.pfx
+  certificatePassword: <stripped sensitive data>
+  signingHashAlgorithms:
+    - sha256
+squirrelWindows:
+  iconUrl: 'https://app.livetex.ru/image/icon.ico'
+  msi: true
+linux:
+  target:
+    - AppImage
+    - deb
+    - tar.gz
